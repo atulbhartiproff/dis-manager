@@ -1,15 +1,15 @@
 # Dis-Manager
 ## My first Discord bot
 
-#####About it
+#### About it
 The bot is made solely for the purpose o learning and innovating my skills and nothing else. The bot would be used on my own private servers for a day to day basis and not monetised. Its not worth all that.
 Bot would be majorly in python for now but might change later
 
 **Under Contsruction...**
-I will update this  regularly
+I will update this regularly
 
 
-##Token
+## Token
 Do not share the token with anybody else. As someone having that is the same as giving away your bot to anybody else. under no circumstance do share that.
 After cloning the repositrpory
 Change the following line in token.txt
