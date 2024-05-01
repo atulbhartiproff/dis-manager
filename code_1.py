@@ -50,6 +50,9 @@ async def on_message(message):
     if any(word in msg for word in sad_words):
         await message.channel.send(random.choice(starter_encouragements))
 
+    if msg.__len__()>200:
+        await message.channel.send('🤓')
+
 with open('token.txt','r') as file:
     token=file.read()
 client.run(token)
