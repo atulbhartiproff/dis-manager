@@ -28,6 +28,22 @@ def get_quote():
     quote=json_data[0]['q']+"-"+json_data[0]['a']
     return (quote)
 
+def get_recommended_movie():
+    url = "https://api.themoviedb.org/3/movie/movie_id/recommendations?language=en-US&page=1"
+    headers = {"accept": "application/json"}
+    response = requests.get(url, headers=headers)
+    return(response.text)
+
+def translate(sentence):
+    url = "https://google-translate1.p.rapidapi.com/language/translate/v2/detect"
+    payload = { "q": sentence }
+    headers = {
+	    "content-type": "application/x-www-form-urlencoded",
+	    "Accept-Encoding": "application/gzip",
+	    "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+	    "X-RapidAPI-Host": "google-translate1.p.rapidapi.com"}
+    response = requests.post(url, data=payload, headers=headers)
+    print(response.json())
 
 @client.event
 async def on_ready():
@@ -43,6 +59,10 @@ async def on_message(message):
     if msg.startswith('$inspire'):
         quote=get_quote()
         await message.channel.send(quote)
+    
+    if msg.startswith('$movie'):
+        movie=get_recommended_movie()
+        await message.channel.send(movie)
 
     if msg.startswith('$hello'):
         await message.channel.send('Hello!')
@@ -50,8 +70,13 @@ async def on_message(message):
     if any(word in msg for word in sad_words):
         await message.channel.send(random.choice(starter_encouragements))
 
+    if msg.startswith('$translate'):
+        translae=translate(msg)
+        await message.channel.send(translae)
+
     if msg.__len__()>200:
         await message.channel.send('🤓')
+    
 
 with open('token.txt','r') as file:
     token=file.read()
