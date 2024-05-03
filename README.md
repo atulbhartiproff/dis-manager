@@ -24,4 +24,16 @@ to the respective token of the bot.
 
 - Can look through and detect if somebody has send a message including a certain sad phrase. Then it goes on to reply with any of the random consolation quote.
 
+- Added Keyword that will recommend Movies. [Return Invalid API key]
+  
+- Added Keyword that can auto detect language of a sentence. [Returns an error]
+
 - Adding More soon...
+
+### Errors and Problems
+
+I will have to look through API and JSON files to find out whats the error with these API calls. 
+
+It returns weird garbage errors or Invalid API Keys. 
+
+Will look thrugh after exams.
