@@ -4,6 +4,7 @@ import discord #Duh, Obviously
 import json #helps in working with json files
 import requests #Does request to API and stuff
 import random #nothing is better than randomness after all. Entropy is the law of universe.
+from tqdm import tqdm
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -20,6 +21,15 @@ starter_encouragements = [
   "Look around you. Life is bad only if you let it. Let go, take a breathe, AND LETS FUCKING GOOO"
 ]
 
+#This function would help to help me remotely download things directly to my pc when i am away.
+def file_download():
+    url=""
+    response=requests.get(url,stream=True)
+    filename=""
+
+    with open(filename,"wb") as handle:
+        for data in tqdm(response.iter_content()):
+            handle.write(data)
 
 #This function requests from the given rl and stores it in the Json file. This it extracts it from the JSon file in a specefic format, isuppose?
 def get_quote():
